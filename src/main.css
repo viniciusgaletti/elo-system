@@ -4,66 +4,79 @@
 
 @layer base {
   :root {
-    --background: 38 30% 93%;
-    --foreground: 40 8% 7%;
-    --card: 38 25% 95%;
-    --card-foreground: 40 8% 7%;
-    --popover: 38 30% 93%;
-    --popover-foreground: 40 8% 7%;
-    --primary: 152 40% 30%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 152 20% 85%;
-    --secondary-foreground: 152 40% 30%;
-    --muted: 38 20% 85%;
-    --muted-foreground: 40 8% 40%;
-    --accent: 152 30% 80%;
-    --accent-foreground: 152 40% 20%;
+    --background: 45 28% 94%;
+    --foreground: 156 20% 5%;
+    --card: 45 35% 97%;
+    --card-foreground: 156 20% 5%;
+    --popover: 45 35% 97%;
+    --popover-foreground: 156 20% 5%;
+    --primary: 74 100% 50%;
+    --primary-foreground: 156 20% 5%;
+    --secondary: 258 100% 92%;
+    --secondary-foreground: 156 20% 5%;
+    --muted: 45 15% 86%;
+    --muted-foreground: 156 10% 40%;
+    --accent: 45 15% 86%;
+    --accent-foreground: 156 20% 5%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 38 20% 85%;
-    --input: 38 20% 85%;
-    --ring: 152 40% 30%;
-    --radius: 0.75rem;
+    --border: 156 10% 85%;
+    --input: 156 10% 85%;
+    --ring: 74 100% 50%;
+    --radius: 1rem;
 
-    --sidebar-background: 38 25% 95%;
-    --sidebar-foreground: 40 8% 7%;
-    --sidebar-primary: 152 40% 30%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 152 20% 85%;
-    --sidebar-accent-foreground: 152 40% 30%;
-    --sidebar-border: 38 20% 85%;
-    --sidebar-ring: 152 40% 30%;
+    --sidebar-background: 156 20% 5%;
+    --sidebar-foreground: 45 28% 94%;
+    --sidebar-primary: 74 100% 50%;
+    --sidebar-primary-foreground: 156 20% 5%;
+    --sidebar-accent: 156 15% 12%;
+    --sidebar-accent-foreground: 74 100% 50%;
+    --sidebar-border: 156 10% 15%;
+    --sidebar-ring: 74 100% 50%;
   }
 
   .dark {
-    --background: 40 8% 7%;
-    --foreground: 38 30% 93%;
-    --card: 40 6% 12%;
-    --card-foreground: 38 30% 93%;
-    --popover: 40 8% 7%;
-    --popover-foreground: 38 30% 93%;
-    --primary: 152 38% 42%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 6% 20%;
-    --secondary-foreground: 38 30% 93%;
-    --muted: 40 6% 20%;
-    --muted-foreground: 38 10% 60%;
-    --accent: 152 30% 20%;
-    --accent-foreground: 152 38% 80%;
+    --background: 156 20% 5%;
+    --foreground: 45 28% 94%;
+    --card: 156 15% 8%;
+    --card-foreground: 45 28% 94%;
+    --popover: 156 15% 8%;
+    --popover-foreground: 45 28% 94%;
+    --primary: 74 100% 50%;
+    --primary-foreground: 156 20% 5%;
+    --secondary: 258 100% 92%;
+    --secondary-foreground: 156 20% 5%;
+    --muted: 156 15% 12%;
+    --muted-foreground: 45 15% 70%;
+    --accent: 156 15% 12%;
+    --accent-foreground: 45 28% 94%;
     --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 40 6% 20%;
-    --input: 40 6% 20%;
-    --ring: 152 38% 42%;
+    --border: 156 10% 18%;
+    --input: 156 10% 18%;
+    --ring: 74 100% 50%;
 
-    --sidebar-background: 40 6% 12%;
-    --sidebar-foreground: 38 30% 93%;
-    --sidebar-primary: 152 38% 42%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 152 30% 20%;
-    --sidebar-accent-foreground: 152 38% 80%;
-    --sidebar-border: 40 6% 20%;
-    --sidebar-ring: 152 38% 42%;
+    --sidebar-background: 156 20% 5%;
+    --sidebar-foreground: 45 28% 94%;
+    --sidebar-primary: 74 100% 50%;
+    --sidebar-primary-foreground: 156 20% 5%;
+    --sidebar-accent: 156 15% 12%;
+    --sidebar-accent-foreground: 74 100% 50%;
+    --sidebar-border: 156 10% 15%;
+    --sidebar-ring: 74 100% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
   }
 
   section[aria-label='Notifications alt+T'] {
@@ -74,25 +87,25 @@
 
 @layer utilities {
   .text-display {
-    @apply font-serif text-4xl md:text-5xl font-bold tracking-[-0.02em];
+    @apply font-serif text-5xl md:text-7xl font-bold tracking-[-0.03em] leading-[1.05];
   }
   .text-h1 {
-    @apply font-serif text-3xl md:text-[36px] font-bold tracking-[-0.01em];
+    @apply font-serif text-4xl md:text-5xl font-bold tracking-[-0.02em] leading-[1.1];
   }
   .text-h2 {
-    @apply font-serif text-2xl md:text-[28px] font-semibold;
+    @apply font-serif text-3xl md:text-[36px] font-semibold tracking-[-0.01em] leading-[1.15];
   }
   .text-h3 {
-    @apply font-serif text-xl font-semibold;
+    @apply font-serif text-2xl font-semibold tracking-tight leading-snug;
   }
   .text-body {
-    @apply font-sans text-base leading-[1.65];
+    @apply font-sans text-base leading-relaxed font-normal;
   }
   .text-small {
-    @apply font-sans text-sm font-medium;
+    @apply font-sans text-sm font-medium leading-relaxed;
   }
   .text-caption {
-    @apply font-sans text-xs;
+    @apply font-sans text-xs font-medium;
   }
 
   @keyframes fade-in {

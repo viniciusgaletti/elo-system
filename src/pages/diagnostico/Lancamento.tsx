@@ -25,34 +25,34 @@ export default function DiagnosticoLancamento() {
   const handleBack = () => navigate(`/diagnostico/${diagnosis.id}/enquadramento`)
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-10 animate-fade-in">
       <div>
-        <h2 className="text-h2 text-primary">Fase 2: Lançamento</h2>
-        <p className="text-muted-foreground mt-2">
+        <h2 className="text-h2 text-foreground">Fase 2: Lançamento</h2>
+        <p className="text-body text-muted-foreground mt-3 max-w-2xl">
           Estruture a implementação do piloto, defina ferramentas e cronograma inicial.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-background p-6 rounded-lg border border-border">
-        <div className="space-y-2">
-          <label className="text-small font-semibold">Stack Tecnológico</label>
-          <Input placeholder="Ex: OpenAI API, Langchain, Supabase" />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-muted/30 p-8 lg:p-10 rounded-3xl border border-border/50">
+        <div className="space-y-3">
+          <label className="text-base font-semibold pl-2">Stack Tecnológico</label>
+          <Input placeholder="Ex: OpenAI API, Langchain, Supabase" className="bg-background" />
         </div>
-        <div className="space-y-2">
-          <label className="text-small font-semibold">Prazo Piloto (Semanas)</label>
-          <Input type="number" placeholder="Ex: 4" />
+        <div className="space-y-3">
+          <label className="text-base font-semibold pl-2">Prazo Piloto (Semanas)</label>
+          <Input type="number" placeholder="Ex: 4" className="bg-background" />
         </div>
-        <div className="space-y-2 md:col-span-2">
-          <label className="text-small font-semibold">KPIs de Sucesso do Piloto</label>
-          <Input placeholder="Ex: Redução de 30% no tempo de atendimento" />
+        <div className="space-y-3 md:col-span-2 mt-4">
+          <label className="text-base font-semibold pl-2">KPIs de Sucesso do Piloto</label>
+          <Input placeholder="Ex: Redução de 30% no tempo de atendimento" className="bg-background" />
         </div>
       </div>
 
-      <div className="flex justify-between pt-4">
-        <Button variant="outline" onClick={handleBack}>
-          <ArrowLeft className="w-4 h-4 mr-2" /> Voltar
+      <div className="flex justify-between items-center pt-6">
+        <Button variant="ghost" size="lg" onClick={handleBack} className="text-muted-foreground hover:text-foreground">
+          <ArrowLeft className="w-5 h-5 mr-2" /> Voltar
         </Button>
-        <Button onClick={handleNext}>Avançar para Otimização</Button>
+        <Button size="lg" onClick={handleNext}>Avançar para Otimização</Button>
       </div>
     </div>
   )

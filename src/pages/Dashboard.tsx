@@ -16,9 +16,9 @@ const phaseLabels = {
 }
 
 const phaseColors = {
-  enquadramento: 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
-  lancamento: 'bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300',
-  otimizacao: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300',
+  enquadramento: 'bg-secondary text-secondary-foreground',
+  lancamento: 'bg-muted text-muted-foreground',
+  otimizacao: 'bg-primary text-primary-foreground',
 }
 
 export default function Dashboard() {
@@ -42,79 +42,77 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        <Loader2 className="w-10 h-10 animate-spin text-primary" />
       </div>
     )
   }
 
   return (
-    <div className="space-y-8">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+    <div className="space-y-12">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
         <div>
-          <h1 className="text-h1">Dashboard</h1>
-          <p className="text-body text-muted-foreground mt-1">
-            Você tem {diagnoses.length} projeto{diagnoses.length !== 1 ? 's' : ''} ativo
-            {diagnoses.length !== 1 ? 's' : ''}.
+          <h1 className="text-display mb-2">Dashboard</h1>
+          <p className="text-body text-muted-foreground">
+            Você tem {diagnoses.length} projeto{diagnoses.length !== 1 ? 's' : ''} ativo{diagnoses.length !== 1 ? 's' : ''}.
           </p>
         </div>
-        <Button asChild className="shrink-0">
+        <Button asChild size="lg" className="shrink-0 shadow-sm">
           <Link to="/diagnostico/novo">
-            <PlusCircle className="mr-2 h-4 w-4" />
+            <PlusCircle className="mr-2 h-5 w-5" />
             Novo Diagnóstico
           </Link>
         </Button>
       </div>
 
       {diagnoses.length === 0 ? (
-        <Card className="border-dashed bg-transparent shadow-none">
-          <CardContent className="flex flex-col items-center justify-center h-64 text-center">
-            <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mb-4">
-              <LayoutTemplate className="w-8 h-8 text-muted-foreground" />
+        <Card className="border-dashed border-2 bg-transparent shadow-none">
+          <CardContent className="flex flex-col items-center justify-center h-80 text-center p-12">
+            <div className="w-20 h-20 bg-muted/50 rounded-full flex items-center justify-center mb-6">
+              <LayoutTemplate className="w-10 h-10 text-muted-foreground" />
             </div>
-            <h3 className="text-h3 mb-2">Nenhum diagnóstico encontrado</h3>
-            <p className="text-muted-foreground mb-6 max-w-sm">
-              Comece aplicando o Método ELO com seu primeiro cliente.
+            <h3 className="text-h2 mb-3">Nenhum projeto encontrado</h3>
+            <p className="text-body text-muted-foreground mb-8 max-w-md">
+              Comece aplicando o Método ELO com seu primeiro cliente para transformar a operação deles com Inteligência Artificial.
             </p>
-            <Button asChild variant="secondary">
+            <Button asChild variant="secondary" size="lg">
               <Link to="/diagnostico/novo">Criar Primeiro Diagnóstico</Link>
             </Button>
           </CardContent>
         </Card>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {diagnoses.map((diag) => (
             <Card
               key={diag.id}
-              className="group hover:border-primary/50 transition-colors flex flex-col"
+              className="group hover:border-primary/40 hover:shadow-md transition-all duration-300 flex flex-col"
             >
-              <CardHeader className="pb-3">
-                <div className="flex justify-between items-start mb-2">
+              <CardHeader className="pb-4">
+                <div className="flex justify-between items-start mb-4">
                   <Badge
                     variant="outline"
-                    className={`font-normal border-transparent ${phaseColors[diag.current_phase]}`}
+                    className={`font-medium border-transparent ${phaseColors[diag.current_phase]}`}
                   >
                     {phaseLabels[diag.current_phase]}
                   </Badge>
                 </div>
-                <CardTitle className="text-h3 line-clamp-1" title={diag.client_name}>
+                <CardTitle className="text-h3 line-clamp-1 text-foreground" title={diag.client_name}>
                   {diag.client_name}
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex-1">
-                <p className="text-small text-muted-foreground line-clamp-2">
+                <p className="text-body text-muted-foreground line-clamp-3">
                   {diag.project_scope || 'Sem escopo definido.'}
                 </p>
               </CardContent>
-              <CardFooter className="pt-0 flex justify-between items-center border-t border-border mt-4 pt-4">
-                <div className="flex items-center text-xs text-muted-foreground">
-                  <Calendar className="w-3.5 h-3.5 mr-1" />
+              <CardFooter className="pt-0 flex justify-between items-center border-t border-border/50 mt-6 pt-6">
+                <div className="flex items-center text-sm font-medium text-muted-foreground">
+                  <Calendar className="w-4 h-4 mr-2" />
                   {format(new Date(diag.created_at), "dd 'de' MMM, yyyy", { locale: ptBR })}
                 </div>
                 <Button
                   asChild
                   variant="ghost"
-                  size="sm"
-                  className="group-hover:bg-primary group-hover:text-primary-foreground"
+                  className="group-hover:bg-primary group-hover:text-primary-foreground rounded-full"
                 >
                   <Link to={`/diagnostico/${diag.id}`}>Acessar</Link>
                 </Button>

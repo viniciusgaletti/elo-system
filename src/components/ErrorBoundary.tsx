@@ -26,13 +26,19 @@ export class ErrorBoundary extends Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground p-4">
-          <AlertCircle className="w-12 h-12 text-destructive mb-4" />
-          <h1 className="text-h2 mb-2 text-center">Algo deu errado.</h1>
-          <p className="text-muted-foreground text-center mb-6 max-w-md">
-            Ocorreu um erro inesperado no sistema. Por favor, tente recarregar a página.
-          </p>
-          <Button onClick={() => window.location.reload()}>Tentar novamente</Button>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground p-6">
+          <div className="max-w-md w-full text-center space-y-6">
+            <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-8">
+              <AlertCircle className="w-10 h-10 text-primary" />
+            </div>
+            <h1 className="text-display tracking-tight text-foreground">Oops.</h1>
+            <p className="text-body text-muted-foreground">
+              Ocorreu um erro inesperado no sistema. Por favor, tente recarregar a página para continuar.
+            </p>
+            <Button size="lg" onClick={() => window.location.reload()} className="mt-8">
+              Tentar novamente
+            </Button>
+          </div>
         </div>
       )
     }

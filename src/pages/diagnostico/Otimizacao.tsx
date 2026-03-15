@@ -12,37 +12,37 @@ export default function DiagnosticoOtimizacao() {
   const handleFinish = () => navigate('/dashboard')
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-10 animate-fade-in">
       <div>
-        <h2 className="text-h2 text-primary">Fase 3: Otimização</h2>
-        <p className="text-muted-foreground mt-2">
+        <h2 className="text-h2 text-foreground">Fase 3: Otimização</h2>
+        <p className="text-body text-muted-foreground mt-3 max-w-2xl">
           Avalie os resultados do lançamento e planeje a escala sustentável.
         </p>
       </div>
 
-      <div className="space-y-4 bg-background p-6 rounded-lg border border-border">
-        <div className="space-y-2">
-          <label className="text-small font-semibold">Gargalos Identificados</label>
+      <div className="space-y-8 bg-muted/30 p-8 lg:p-10 rounded-3xl border border-border/50">
+        <div className="space-y-3">
+          <label className="text-base font-semibold pl-2">Gargalos Identificados</label>
           <Textarea
             placeholder="Quais foram os desafios durante o piloto?"
-            className="min-h-[100px]"
+            className="min-h-[140px] bg-background"
           />
         </div>
-        <div className="space-y-2">
-          <label className="text-small font-semibold">Plano de Escala</label>
+        <div className="space-y-3">
+          <label className="text-base font-semibold pl-2">Plano de Escala</label>
           <Textarea
             placeholder="Próximos passos para adoção em toda a empresa..."
-            className="min-h-[120px]"
+            className="min-h-[140px] bg-background"
           />
         </div>
       </div>
 
-      <div className="flex justify-between pt-4">
-        <Button variant="outline" onClick={handleBack}>
-          <ArrowLeft className="w-4 h-4 mr-2" /> Voltar
+      <div className="flex justify-between items-center pt-6">
+        <Button variant="ghost" size="lg" onClick={handleBack} className="text-muted-foreground hover:text-foreground">
+          <ArrowLeft className="w-5 h-5 mr-2" /> Voltar
         </Button>
-        <Button onClick={handleFinish} className="bg-emerald-600 hover:bg-emerald-700 text-white">
-          <CheckCircle2 className="w-4 h-4 mr-2" /> Finalizar Diagnóstico
+        <Button size="lg" onClick={handleFinish} className="bg-primary text-primary-foreground">
+          <CheckCircle2 className="w-5 h-5 mr-2" /> Finalizar Projeto
         </Button>
       </div>
     </div>

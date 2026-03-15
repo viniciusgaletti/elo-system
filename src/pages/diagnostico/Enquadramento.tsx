@@ -22,33 +22,33 @@ export default function DiagnosticoEnquadramento() {
   }
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-10 animate-fade-in">
       <div>
-        <h2 className="text-h2 text-primary">Fase 1: Enquadramento</h2>
-        <p className="text-muted-foreground mt-2">
+        <h2 className="text-h2 text-foreground">Fase 1: Enquadramento</h2>
+        <p className="text-body text-muted-foreground mt-3 max-w-2xl">
           Defina o problema principal, levante hipóteses e construa o baseline do projeto de IA.
         </p>
       </div>
 
-      <div className="space-y-4 bg-background p-6 rounded-lg border border-border">
-        <div className="space-y-2">
-          <label className="text-small font-semibold">Análise de Cenário Atual</label>
+      <div className="space-y-8 bg-muted/30 p-8 lg:p-10 rounded-3xl border border-border/50">
+        <div className="space-y-3">
+          <label className="text-base font-semibold pl-2">Análise de Cenário Atual</label>
           <Textarea
             placeholder="Descreva a dor do cliente, processos impactados..."
-            className="min-h-[150px]"
+            className="min-h-[160px] bg-background"
           />
         </div>
-        <div className="space-y-2">
-          <label className="text-small font-semibold">Hipótese de IA</label>
+        <div className="space-y-3">
+          <label className="text-base font-semibold pl-2">Hipótese de IA</label>
           <Textarea
             placeholder="Como a Inteligência Artificial pode resolver este problema?"
-            className="min-h-[100px]"
+            className="min-h-[120px] bg-background"
           />
         </div>
       </div>
 
-      <div className="flex justify-end pt-4">
-        <Button onClick={handleNext}>Concluir e Avançar para Lançamento</Button>
+      <div className="flex justify-end pt-6">
+        <Button size="lg" onClick={handleNext}>Concluir e Avançar</Button>
       </div>
     </div>
   )

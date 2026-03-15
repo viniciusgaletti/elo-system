@@ -58,30 +58,30 @@ export default function NovoDiagnostico() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-3xl mx-auto space-y-10">
       <div>
-        <h1 className="text-h1">Novo Diagnóstico</h1>
-        <p className="text-body text-muted-foreground mt-1">
-          Inicie o Método ELO para um novo cliente.
+        <h1 className="text-h1 mb-3">Novo Projeto</h1>
+        <p className="text-body text-muted-foreground max-w-2xl">
+          Inicie o Método ELO para um novo cliente. Preencha as informações base que guiarão toda a consultoria.
         </p>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Dados Iniciais do Cliente</CardTitle>
-          <CardDescription>
-            Estas informações serão utilizadas na base de todo o processo metodológico.
+      <Card className="shadow-lg">
+        <CardHeader className="pb-8">
+          <CardTitle>Dados Iniciais</CardTitle>
+          <CardDescription className="text-base mt-2">
+            Estas informações definirão o baseline do projeto de IA.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
                 control={form.control}
                 name="clientName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nome do Cliente ou Empresa</FormLabel>
+                    <FormLabel className="text-base pl-2">Empresa ou Cliente</FormLabel>
                     <FormControl>
                       <Input placeholder="Ex: TechNova Solutions" {...field} />
                     </FormControl>
@@ -94,30 +94,33 @@ export default function NovoDiagnostico() {
                 name="projectScope"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Escopo do Projeto</FormLabel>
+                    <FormLabel className="text-base pl-2">Escopo Principal</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder="Descreva brevemente o desafio principal ou área de atuação..."
-                        className="min-h-[120px] resize-none"
+                        className="min-h-[160px] resize-none"
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription>Um resumo do que motivou a consultoria.</FormDescription>
+                    <FormDescription className="pl-2 mt-2">
+                      Um resumo direto do que motivou a consultoria.
+                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <div className="flex justify-end gap-4 pt-4 border-t border-border">
+              <div className="flex justify-end gap-4 pt-8 border-t border-border/50">
                 <Button
                   type="button"
-                  variant="outline"
+                  variant="ghost"
+                  size="lg"
                   onClick={() => navigate('/dashboard')}
                   disabled={isSubmitting}
                 >
                   Cancelar
                 </Button>
-                <Button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? 'Salvando...' : 'Iniciar ELO Method'}
+                <Button type="submit" size="lg" disabled={isSubmitting}>
+                  {isSubmitting ? 'Iniciando...' : 'Iniciar ELO Method'}
                 </Button>
               </div>
             </form>

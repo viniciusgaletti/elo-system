@@ -31,23 +31,23 @@ export default function Layout() {
   return (
     <SidebarProvider>
       <Sidebar>
-        <SidebarHeader className="p-4 border-b border-border">
+        <SidebarHeader className="p-6 border-b border-sidebar-border">
           <Link
             to="/dashboard"
-            className="text-h2 text-primary hover:opacity-90 transition-opacity"
+            className="text-h2 font-serif font-bold text-sidebar-foreground hover:text-sidebar-primary transition-colors tracking-tight"
           >
             ELO System
           </Link>
         </SidebarHeader>
-        <SidebarContent className="py-4">
+        <SidebarContent className="py-6">
           <SidebarGroup>
             <SidebarMenu>
               {navigation.map((item) => (
                 <SidebarMenuItem key={item.name}>
                   <SidebarMenuButton asChild isActive={location.pathname === item.href}>
-                    <Link to={item.href} className="flex items-center gap-3 px-3 py-2 text-small">
+                    <Link to={item.href} className="flex items-center gap-4 px-4 py-3 text-base">
                       <item.icon className="w-5 h-5" />
-                      <span>{item.name}</span>
+                      <span className="font-medium">{item.name}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -55,15 +55,15 @@ export default function Layout() {
             </SidebarMenu>
           </SidebarGroup>
         </SidebarContent>
-        <SidebarFooter className="p-4 border-t border-border">
+        <SidebarFooter className="p-6 border-t border-sidebar-border">
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton
                 onClick={() => signOut()}
-                className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                className="text-muted-foreground hover:text-destructive hover:bg-destructive/10"
               >
-                <LogOut className="w-5 h-5" />
-                <span>Sair</span>
+                <LogOut className="w-5 h-5 mr-1" />
+                <span className="font-medium">Sair</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
@@ -71,14 +71,16 @@ export default function Layout() {
       </Sidebar>
 
       <div className="flex-1 flex flex-col min-h-screen overflow-hidden bg-background relative">
-        <header className="h-16 flex items-center justify-between px-4 lg:px-8 border-b border-border bg-card z-10">
+        <header className="h-20 flex items-center justify-between px-6 lg:px-12 border-b border-border/50 bg-background/80 backdrop-blur-md z-10">
           <div className="flex items-center gap-4">
-            <SidebarTrigger className="lg:hidden" />
-            <span className="text-h3 lg:hidden text-primary">ELO System</span>
+            <SidebarTrigger className="lg:hidden text-foreground" />
+            <span className="font-serif text-2xl font-bold tracking-tight text-foreground lg:hidden">
+              ELO System
+            </span>
           </div>
           <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 rounded-md hover:bg-accent text-foreground transition-colors"
+            className="p-3 rounded-full hover:bg-accent text-foreground transition-colors"
             aria-label="Alternar tema"
           >
             {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
@@ -86,11 +88,11 @@ export default function Layout() {
         </header>
 
         <main className="flex-1 overflow-y-auto">
-          <div className="max-w-[1200px] mx-auto p-5 lg:p-8 animate-fade-in-up">
+          <div className="max-w-[1100px] mx-auto p-6 md:p-12 lg:p-16 animate-fade-in-up space-y-16">
             <Suspense
               fallback={
                 <div className="flex items-center justify-center h-64">
-                  <Loader2 className="w-8 h-8 animate-spin text-primary" />
+                  <Loader2 className="w-10 h-10 animate-spin text-primary" />
                 </div>
               }
             >
