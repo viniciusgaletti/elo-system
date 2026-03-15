@@ -42,7 +42,11 @@ export default function DiagnosticoOverview() {
   return (
     <div className="space-y-12 pb-16">
       <div className="space-y-6">
-        <Button variant="ghost" asChild className="-ml-4 text-muted-foreground hover:text-foreground">
+        <Button
+          variant="ghost"
+          asChild
+          className="-ml-4 text-muted-foreground hover:text-foreground"
+        >
           <Link to="/dashboard">
             <ArrowLeft className="w-5 h-5 mr-2" /> Voltar ao Dashboard
           </Link>

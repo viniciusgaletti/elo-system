@@ -33,7 +33,8 @@ export class ErrorBoundary extends Component<Props, State> {
             </div>
             <h1 className="text-display tracking-tight text-foreground">Oops.</h1>
             <p className="text-body text-muted-foreground">
-              Ocorreu um erro inesperado no sistema. Por favor, tente recarregar a página para continuar.
+              Ocorreu um erro inesperado no sistema. Por favor, tente recarregar a página para
+              continuar.
             </p>
             <Button size="lg" onClick={() => window.location.reload()} className="mt-8">
               Tentar novamente

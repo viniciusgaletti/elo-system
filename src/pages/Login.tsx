@@ -64,9 +64,7 @@ export default function Login() {
 
       <Card className="w-full max-w-md relative z-10 shadow-xl border-border/40 bg-card p-4 animate-fade-in-up">
         <CardHeader className="text-center space-y-4 pb-8">
-          <CardTitle className="text-display text-foreground tracking-tight">
-            ELO System
-          </CardTitle>
+          <CardTitle className="text-display text-foreground tracking-tight">ELO System</CardTitle>
           <CardDescription className="text-body text-muted-foreground px-4">
             Acesse o portal do consultor para iniciar novos projetos.
           </CardDescription>
@@ -81,7 +79,11 @@ export default function Login() {
                   <FormItem>
                     <FormLabel className="text-foreground font-medium pl-1">Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="consultor@exemplo.com" {...field} className="bg-background" />
+                      <Input
+                        placeholder="consultor@exemplo.com"
+                        {...field}
+                        className="bg-background"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -94,7 +96,12 @@ export default function Login() {
                   <FormItem>
                     <FormLabel className="text-foreground font-medium pl-1">Senha</FormLabel>
                     <FormControl>
-                      <Input type="password" placeholder="••••••••" {...field} className="bg-background" />
+                      <Input
+                        type="password"
+                        placeholder="••••••••"
+                        {...field}
+                        className="bg-background"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -116,7 +123,9 @@ export default function Login() {
 
           <div className="mt-8 text-center text-sm text-muted-foreground border-t border-border/50 pt-6">
             <p>Acesso restrito para consultores autorizados.</p>
-            <p className="mt-2 text-xs font-mono opacity-60">admin@example.com / StrongPassword123!</p>
+            <p className="mt-2 text-xs font-mono opacity-60">
+              admin@example.com / StrongPassword123!
+            </p>
           </div>
         </CardContent>
       </Card>

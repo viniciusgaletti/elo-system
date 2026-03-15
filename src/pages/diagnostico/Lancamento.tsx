@@ -44,15 +44,25 @@ export default function DiagnosticoLancamento() {
         </div>
         <div className="space-y-3 md:col-span-2 mt-4">
           <label className="text-base font-semibold pl-2">KPIs de Sucesso do Piloto</label>
-          <Input placeholder="Ex: Redução de 30% no tempo de atendimento" className="bg-background" />
+          <Input
+            placeholder="Ex: Redução de 30% no tempo de atendimento"
+            className="bg-background"
+          />
         </div>
       </div>
 
       <div className="flex justify-between items-center pt-6">
-        <Button variant="ghost" size="lg" onClick={handleBack} className="text-muted-foreground hover:text-foreground">
+        <Button
+          variant="ghost"
+          size="lg"
+          onClick={handleBack}
+          className="text-muted-foreground hover:text-foreground"
+        >
           <ArrowLeft className="w-5 h-5 mr-2" /> Voltar
         </Button>
-        <Button size="lg" onClick={handleNext}>Avançar para Otimização</Button>
+        <Button size="lg" onClick={handleNext}>
+          Avançar para Otimização
+        </Button>
       </div>
     </div>
   )

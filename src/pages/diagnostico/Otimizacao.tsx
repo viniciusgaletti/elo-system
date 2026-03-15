@@ -38,7 +38,12 @@ export default function DiagnosticoOtimizacao() {
       </div>
 
       <div className="flex justify-between items-center pt-6">
-        <Button variant="ghost" size="lg" onClick={handleBack} className="text-muted-foreground hover:text-foreground">
+        <Button
+          variant="ghost"
+          size="lg"
+          onClick={handleBack}
+          className="text-muted-foreground hover:text-foreground"
+        >
           <ArrowLeft className="w-5 h-5 mr-2" /> Voltar
         </Button>
         <Button size="lg" onClick={handleFinish} className="bg-primary text-primary-foreground">

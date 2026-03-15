@@ -62,7 +62,8 @@ export default function NovoDiagnostico() {
       <div>
         <h1 className="text-h1 mb-3">Novo Projeto</h1>
         <p className="text-body text-muted-foreground max-w-2xl">
-          Inicie o Método ELO para um novo cliente. Preencha as informações base que guiarão toda a consultoria.
+          Inicie o Método ELO para um novo cliente. Preencha as informações base que guiarão toda a
+          consultoria.
         </p>
       </div>
 

@@ -24,7 +24,9 @@ export default function Perfil() {
           <div className="flex items-end gap-6">
             <Avatar className="h-28 w-28 border-4 border-card bg-card shadow-sm">
               <AvatarImage src={`https://img.usecurling.com/ppl/thumbnail?seed=${user?.id || 1}`} />
-              <AvatarFallback className="text-4xl text-primary-foreground bg-primary">{initial}</AvatarFallback>
+              <AvatarFallback className="text-4xl text-primary-foreground bg-primary">
+                {initial}
+              </AvatarFallback>
             </Avatar>
             <div className="pb-2">
               <CardTitle className="text-h2">{userEmail.split('@')[0]}</CardTitle>

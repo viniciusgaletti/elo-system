@@ -48,7 +48,9 @@ export default function DiagnosticoEnquadramento() {
       </div>
 
       <div className="flex justify-end pt-6">
-        <Button size="lg" onClick={handleNext}>Concluir e Avançar</Button>
+        <Button size="lg" onClick={handleNext}>
+          Concluir e Avançar
+        </Button>
       </div>
     </div>
   )

@@ -53,7 +53,8 @@ export default function Dashboard() {
         <div>
           <h1 className="text-display mb-2">Dashboard</h1>
           <p className="text-body text-muted-foreground">
-            Você tem {diagnoses.length} projeto{diagnoses.length !== 1 ? 's' : ''} ativo{diagnoses.length !== 1 ? 's' : ''}.
+            Você tem {diagnoses.length} projeto{diagnoses.length !== 1 ? 's' : ''} ativo
+            {diagnoses.length !== 1 ? 's' : ''}.
           </p>
         </div>
         <Button asChild size="lg" className="shrink-0 shadow-sm">
@@ -72,7 +73,8 @@ export default function Dashboard() {
             </div>
             <h3 className="text-h2 mb-3">Nenhum projeto encontrado</h3>
             <p className="text-body text-muted-foreground mb-8 max-w-md">
-              Comece aplicando o Método ELO com seu primeiro cliente para transformar a operação deles com Inteligência Artificial.
+              Comece aplicando o Método ELO com seu primeiro cliente para transformar a operação
+              deles com Inteligência Artificial.
             </p>
             <Button asChild variant="secondary" size="lg">
               <Link to="/diagnostico/novo">Criar Primeiro Diagnóstico</Link>
@@ -95,7 +97,10 @@ export default function Dashboard() {
                     {phaseLabels[diag.current_phase]}
                   </Badge>
                 </div>
-                <CardTitle className="text-h3 line-clamp-1 text-foreground" title={diag.client_name}>
+                <CardTitle
+                  className="text-h3 line-clamp-1 text-foreground"
+                  title={diag.client_name}
+                >
                   {diag.client_name}
                 </CardTitle>
               </CardHeader>
