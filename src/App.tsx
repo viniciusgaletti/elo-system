@@ -1,29 +1,59 @@
-/* Main App Component - Handles routing (using react-router-dom), query client and other providers - use this file to add all routes */
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
-import Index from './pages/Index'
-import NotFound from './pages/NotFound'
-import Layout from './components/Layout'
+import { ThemeProvider } from '@/hooks/use-theme'
+import { AuthProvider } from '@/hooks/use-auth'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
 
-// ONLY IMPORT AND RENDER WORKING PAGES, NEVER ADD PLACEHOLDER COMPONENTS OR PAGES IN THIS FILE
-// AVOID REMOVING ANY CONTEXT PROVIDERS FROM THIS FILE (e.g. TooltipProvider, Toaster, Sonner)
+import Layout from '@/components/Layout'
+import { ProtectedRoute } from '@/components/ProtectedRoute'
+
+import Login from '@/pages/Login'
+import Dashboard from '@/pages/Dashboard'
+import NovoDiagnostico from '@/pages/diagnostico/Novo'
+import DiagnosticoOverview from '@/pages/diagnostico/Overview'
+import DiagnosticoEnquadramento from '@/pages/diagnostico/Enquadramento'
+import DiagnosticoLancamento from '@/pages/diagnostico/Lancamento'
+import DiagnosticoOtimizacao from '@/pages/diagnostico/Otimizacao'
+import Perfil from '@/pages/Perfil'
 
 const App = () => (
-  <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES MUST BE ADDED HERE */}
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </TooltipProvider>
-  </BrowserRouter>
+  <ErrorBoundary>
+    <ThemeProvider>
+      <AuthProvider>
+        <BrowserRouter future={{ v7_startTransition: false, v7_relativeSplatPath: false }}>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <Routes>
+              {/* Public Routes */}
+              <Route path="/login" element={<Login />} />
+
+              {/* Protected Routes */}
+              <Route element={<ProtectedRoute />}>
+                <Route element={<Layout />}>
+                  <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/diagnostico/novo" element={<NovoDiagnostico />} />
+
+                  <Route path="/diagnostico/:id" element={<DiagnosticoOverview />}>
+                    <Route path="enquadramento" element={<DiagnosticoEnquadramento />} />
+                    <Route path="lancamento" element={<DiagnosticoLancamento />} />
+                    <Route path="otimizacao" element={<DiagnosticoOtimizacao />} />
+                  </Route>
+
+                  <Route path="/perfil" element={<Perfil />} />
+                </Route>
+              </Route>
+
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </TooltipProvider>
+        </BrowserRouter>
+      </AuthProvider>
+    </ThemeProvider>
+  </ErrorBoundary>
 )
 
 export default App
