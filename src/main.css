@@ -33,6 +33,21 @@
     --sidebar-accent-foreground: 74 100% 50%;
     --sidebar-border: 156 10% 15%;
     --sidebar-ring: 74 100% 50%;
+
+    /* Wispr Flow Extended Semantic Tokens */
+    --success: 162 84% 39%;
+    --success-foreground: 152 81% 96%;
+    --warning: 42 85% 65%;
+    --warning-foreground: 33 90% 15%;
+    --info: 249 66% 69%;
+    --info-foreground: 250 100% 97%;
+
+    /* Chart Colors */
+    --chart-1: 168 93% 16%;
+    --chart-2: 249 66% 69%;
+    --chart-3: 162 84% 39%;
+    --chart-4: 42 85% 65%;
+    --chart-5: 0 84% 60%;
   }
 
   .dark {
@@ -64,6 +79,21 @@
     --sidebar-accent-foreground: 74 100% 50%;
     --sidebar-border: 156 10% 15%;
     --sidebar-ring: 74 100% 50%;
+
+    /* Dark mode semantic tokens */
+    --success: 162 84% 39%;
+    --success-foreground: 152 81% 96%;
+    --warning: 42 85% 55%;
+    --warning-foreground: 55 92% 95%;
+    --info: 249 66% 69%;
+    --info-foreground: 250 100% 97%;
+
+    /* Dark mode chart colors */
+    --chart-1: 164 90% 42%;
+    --chart-2: 249 66% 69%;
+    --chart-3: 162 84% 39%;
+    --chart-4: 42 85% 55%;
+    --chart-5: 0 63% 51%;
   }
 
   * {
@@ -86,6 +116,7 @@
 }
 
 @layer utilities {
+  /* ===== TYPOGRAPHY SCALE (Wispr Flow Editorial System) ===== */
   .text-display {
     @apply font-serif text-5xl md:text-7xl font-bold tracking-[-0.03em] leading-[1.05];
   }
@@ -98,6 +129,12 @@
   .text-h3 {
     @apply font-serif text-2xl font-semibold tracking-tight leading-snug;
   }
+  .text-h4 {
+    @apply font-sans text-xl font-semibold tracking-[-0.01em] leading-[1.4];
+  }
+  .text-body-lg {
+    @apply font-sans text-lg leading-[1.7] font-normal;
+  }
   .text-body {
     @apply font-sans text-base leading-relaxed font-normal;
   }
@@ -105,9 +142,27 @@
     @apply font-sans text-sm font-medium leading-relaxed;
   }
   .text-caption {
-    @apply font-sans text-xs font-medium;
+    @apply font-sans text-xs font-medium tracking-[0.02em];
+  }
+  .text-overline {
+    @apply font-sans text-[11px] font-semibold tracking-[0.08em] uppercase leading-[1.5];
   }
 
+  /* ===== GLASSMORPHISM (Wispr Flow Special Effects) ===== */
+  .glass {
+    background: rgba(255, 255, 235, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 235, 0.12);
+  }
+  .glass-dark {
+    background: rgba(3, 79, 69, 0.40);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 235, 0.08);
+  }
+
+  /* ===== ANIMATIONS ===== */
   @keyframes fade-in {
     from {
       opacity: 0;
