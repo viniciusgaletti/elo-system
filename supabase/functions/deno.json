@@ -1,0 +1,8 @@
+{
+  "_versions": {
+    "generate-process-steps": 4,
+    "analyze-process-with-ai": 5,
+    "suggest-tools-for-step": 2,
+    "suggest-refinements": 2
+  }
+}

@@ -1,0 +1,1 @@
+export { otimizacaoService } from './otimizacaoService'
